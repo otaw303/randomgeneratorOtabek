@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/randomG.css">
+    <title>TOtabek Random generatori</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>Tasodifiy Son Generatori</h2>
+    <label for="min">Minimal qiymat:</label>
+    <input type="number" id="min" placeholder="0">
+    <br>
+    <label for="max">Maksimal qiymat:</label>
+    <input type="number" id="max" placeholder="100">
+    <br>
+    <button onclick="generateRandomNumber()">Tasodifiy Sonni Tanlash</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    function generateRandomNumber() {
+        // Minimal va maksimal qiymatlarni olamiz
+        let min = parseInt(document.getElementById("min").value);
+        let max = parseInt(document.getElementById("max").value);
+
+        // Kiritilgan qiymatlar tekshiriladi
+        if (isNaN(min) || isNaN(max) || min >= max) {
+            document.getElementById("result").innerText = "To'g'ri qiymatlar kiriting!";
+            return;
+        }
+
+        // Tasodifiy sonni hisoblaymiz
+        let randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+        document.getElementById("result").innerText = `Tasodifiy son: ${randomNum}`;
+    }
+</script>
+
+</body>
+</html>
